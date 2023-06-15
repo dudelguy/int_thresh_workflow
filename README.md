@@ -19,15 +19,19 @@ The provided files contain the complete workflow of the steps 4-7 of section 2.3
 This file contains the complete workflow of the steps 4-7 of section 2.3. To be able to run the code, four separate functions need to be loaded. They are provided in additional the additional files of this repository.
 Input for the complete workflow are the measured LIBS spectra, which should be processed as described in steps 1-3 of section 2.3. The element specific emission lines need to be extracted with peak integration, normalized and stored in a data frame, in which every row contains the information of one measurement point and every column contains the normalized emission intensity of the specific element line. Several variables need to be set depending on the investigated data set.
 
-### 1. Function: 
-In this function, OC-SVM - tuning is applied to each investigated mineral class individually. The results are combined and measurement points that are assigned to multiple classes are labelled according to the smallest euclidean distance of the related class centers. 
-The function returns a data frame that includes the class labels of every investigated measurement point. Unknown data points are labelled accordingly.
+### 1. Function: initialData_to_map
+This function is used to convert the initial structure of of the LIBS intensity data into stacks of 2D-maps. Input is a data frame with a similar structure as the input data, although the columns do not necessarily need to include emission intensities. It is also possible to convert e.g. the labels after clustering or classification into 2D-representation. 
 
-### 2. Function: 
-This function includes the final classification workflow as described in the paper. First, the training and unknown data are tranformed into the LDA-space using the LDA algorithm implemented in the 'MASS' package, afterwards, the two other functions are called. If necessary, self-learning can be used to iteratively increase the initial train set with the newly labelled data. The euclidean distance of newly labelled point to its associated class center can be used to adapt the number of newly labelled data points included in each self-learning iteration. 
-The function returns the final classification result, as well as the result after every iteration of self-learning. This can be used to evaluate the self-learning process and find the optimal number of iterations. 
+### 2. Function: majority_filter
+This function includes the majority filter that was applied in step 5 of section 2.3. It is used on the clustering result to smooth the image and correct wrongly clustered measurement points.
 
-### 3. Function: 
+### 3. Function: extract_buffer_zones
+This function is used to create the buffer zones around specific clasts of the same class und to extract the spatial positions of the associated pixels. This information can be used to spatially reconstruct the buffer zones on a 2D-map for validation or to get the intensity values of all pixels from the buffer zones from the initial input data.  
 
-### 4. Function: 
+### 4. Function: rims_not_enriched
+This function is applied to the ouput of function 3 'extract_buffer_zones'. In combination with a formerly defined intensity threshold (in the paper, median + 3 x mad is used), buffer zones with pixels above the threshold intensity are removed. The remaining output contains a list, in which each entry is associated to a buffer zone that only includes pixels not enriched in the specific intensity values. 
+
+<br/>
+
+I am happy to get in touch if any questions remain!
 
