@@ -16,7 +16,7 @@ After small adaptations, the provided code should be applicable for similar prob
 The provided files contain the complete workflow of the steps 4-7 of section 2.3. A short description of each file is found below, a more detailed description can be found in the documentation of the individual files. 
 
 ### intensity threshold - complete workflow
-This file contains the complete workflow of the steps 4-7 of section 2.3. To be able to run the code, four separate functions need to be loaded. They are provided in additional the additional files of this repository.
+This file contains the complete workflow of the steps 4-7 of section 2.3. To be able to run the code, four separate functions need to be loaded. They are provided in the additional files of this repository.
 Input for the complete workflow are the measured LIBS spectra, which should be processed as described in steps 1-3 of section 2.3. The element specific emission lines need to be extracted with peak integration, normalized and stored in a data frame, in which every row contains the information of one measurement point and every column contains the normalized emission intensity of the specific element line. Several variables need to be set depending on the investigated data set.
 
 ### 1. Function: initialData_to_map
