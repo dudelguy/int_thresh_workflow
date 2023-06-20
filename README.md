@@ -4,7 +4,7 @@ This repository contains the code associated to steps 4 to 7 described in sectio
 
 <br />
 <p align="center">
-<img width="638" alt="Screenshot 2023-06-15 143412" src="https://github.com/dudelguy/int_thresh_workflow/assets/130980491/e6729d5f-e5ed-4721-84e7-59e1ac4f736c">
+<img width="638" alt="Screenshot 2023-06-15 143412" src="https://github.com/dudelguy/int_thresh_workflow/assets/130980491/1303f559-ffc6-4c03-9713-ed1883ff00fb">
 </p>
 <br />
 
